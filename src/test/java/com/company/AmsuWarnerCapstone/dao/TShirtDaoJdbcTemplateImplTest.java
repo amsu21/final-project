@@ -52,4 +52,16 @@ public class TShirtDaoJdbcTemplateImplTest {
         tShirt = new TShirt();
     }
 
+    // UPDATE
+    @Test
+    public void updateTShirt() {
+        // ARRANGE
+        TShirt tShirt = new TShirt();
+        tShirt.setSize("Large");
+        tShirt.setColor("Red");
+        tShirt.setDescription("Graphic Tee");
+        tShirt.setPrice(new BigDecimal("12.99"));
+        tShirt.setQuantity(1);
+    }
+
 }

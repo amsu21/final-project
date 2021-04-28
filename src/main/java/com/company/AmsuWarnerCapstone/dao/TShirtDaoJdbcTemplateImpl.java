@@ -95,7 +95,7 @@ public class TShirtDaoJdbcTemplateImpl implements TShirtInventoryDao {
         tShirt.setColor(rs.getNString("color"));
         tShirt.setDescription(rs.getString("description"));
         tShirt.setPrice(rs.getBigDecimal("price"));
-        tShirt.setQuantity(rs.getNString("quantity"));
+        tShirt.setQuantity(rs.getInt("quantity"));
 
         return tShirt;
     }

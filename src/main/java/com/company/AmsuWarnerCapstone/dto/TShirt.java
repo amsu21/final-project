@@ -10,7 +10,7 @@ public class TShirt {
     private String color;
     private String description;
     private BigDecimal price;
-    private String quantity;
+    private int quantity;
 
     // GETTERS AND SETTERS
 
@@ -54,11 +54,11 @@ public class TShirt {
         this.price = price;
     }
 
-    public String getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
@@ -70,7 +70,7 @@ public class TShirt {
         if (this == o) return true;
         if (!(o instanceof TShirt)) return false;
         TShirt tShirt = (TShirt) o;
-        return getT_shirt_id() == tShirt.getT_shirt_id() && Objects.equals(getSize(), tShirt.getSize()) && Objects.equals(getColor(), tShirt.getColor()) && Objects.equals(getDescription(), tShirt.getDescription()) && Objects.equals(getPrice(), tShirt.getPrice()) && Objects.equals(getQuantity(), tShirt.getQuantity());
+        return getT_shirt_id() == tShirt.getT_shirt_id() && getQuantity() == tShirt.getQuantity() && Objects.equals(getSize(), tShirt.getSize()) && Objects.equals(getColor(), tShirt.getColor()) && Objects.equals(getDescription(), tShirt.getDescription()) && Objects.equals(getPrice(), tShirt.getPrice());
     }
 
     @Override

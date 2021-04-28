@@ -55,4 +55,17 @@ public class ConsolesDaoJdbcTemplateImplTest {
         consoles = new Consoles();
     }
 
+    // UPDATE
+    @Test
+    public void updateConsoles() {
+        // ARRANGE
+        Consoles consoles = new Consoles();
+        consoles.setModel("PS5");
+        consoles.setManufacturer("Sony");
+        consoles.setMemory_amount("1TB");
+        consoles.setProcessor("GPU");
+        consoles.setPrice(new BigDecimal("499.00"));
+        consoles.setQuantity(1);
+    }
+
 }

@@ -23,7 +23,7 @@ public class TShirtDaoJdbcTemplateImpl implements TShirtInventoryDao {
     private static final String SELECT_ALL_TSHIRT_SQL =
             "Select * From t_shirt";
     private static final String DELETE_TSHIRT_SQL =
-            "Delete from publisher where t_shirt_id = ?";
+            "Delete from t_shirt where t_shirt_id = ?";
     private static final String UPDATE_TSHIRT_SQL =
             "Update t_shirt set size = ?, color = ?, description = ?, price = ?, quantity = ? where t_shirt_id = ?";
 

@@ -64,6 +64,7 @@ public class TShirt {
 
     // EQUALS AND HASH CODE
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

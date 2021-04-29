@@ -106,6 +106,7 @@ public class GamesDaoJdbcTemplateImpl implements GamesInventoryDao {
         games.setDescription(rs.getString("description"));
         games.setPrice(rs.getBigDecimal("price"));
         games.setStudio(rs.getString("studio"));
+        games.setQuantity(rs.getInt("quantity"));
 
         return games;
     }

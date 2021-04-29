@@ -86,7 +86,9 @@ public class GamesDaoJdbcTemplateImpl implements GamesInventoryDao {
             games.getEsrb_rating(),
             games.getDescription(),
             games.getPrice(),
-            games.getStudio());
+            games.getStudio(),
+            games.getQuantity(),
+            games.getGameId());
     }
 
     // DELETE GAME

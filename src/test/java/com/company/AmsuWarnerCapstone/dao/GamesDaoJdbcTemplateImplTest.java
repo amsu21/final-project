@@ -53,4 +53,17 @@ public class GamesDaoJdbcTemplateImplTest {
         gamesInventoryDao.addGames(games);
         games = new Games();
     }
+
+    // UPDATE
+    @Test
+    public void updateGames() {
+        // ARRANGE
+        Games games = new Games();
+        games.setTitle("NBA 2K");
+        games.setEsrb_rating("E");
+        games.setDescription("Sports Game");
+        games.setPrice(new BigDecimal("59.99"));
+        games.setStudio("Visual Concepts");
+        games.setQuantity(1);
+    }
 }

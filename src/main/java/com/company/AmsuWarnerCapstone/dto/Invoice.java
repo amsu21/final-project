@@ -12,7 +12,7 @@ public class Invoice {
     private String state;
     private String zipcode;
     private String item_type;
-    private String item_id;
+    private int item_id;
     private int quantity;
     private BigDecimal subtotal;
     private BigDecimal tax;

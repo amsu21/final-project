@@ -2,14 +2,16 @@ package com.company.AmsuWarnerCapstone.dao;
 
 import com.company.AmsuWarnerCapstone.dto.Invoice;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 @Repository
-public class InvoiceDaoJdbcTemplateImpl {
+public class InvoiceDaoJdbcTemplateImpl implements IncoiveDao {
     // PREPARED STATEMENTS
     private static final String INSERT_INVOICE_SQL =
             "Insert into invoice (name, street, city, state, zipcode, item_type, item_id, unit_price, quantity, subtotal, tax, processing_fee, total) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -32,11 +34,33 @@ public class InvoiceDaoJdbcTemplateImpl {
 
     @Override
     public Invoice getInvoice(int id) {
+        try {
+            return jdbcTemplate.queryForObject(SELECT_INVOICE_SQL, this::mapToRowInvoice, id);
+        }
+        catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+
+    @Override
+    public List<Invoice> getAllInvoices() {
+        return null;
+    }
+
+    @Override
+    public Invoice addInvoice(Invoice invoice) {
+        return null;
+    }
+
+    @Override
+    public void updateInvoice(Invoice invoice) {
 
     }
 
+    @Override
+    public void deleteInvoice(int id) {
 
-
+    }
 
 
     //  ROW MAPPER

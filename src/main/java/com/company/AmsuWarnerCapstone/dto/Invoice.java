@@ -77,11 +77,11 @@ public class Invoice {
         this.item_type = item_type;
     }
 
-    public String getItem_id() {
+    public int getItem_id() {
         return item_id;
     }
 
-    public void setItem_id(String item_id) {
+    public void setItem_id(int item_id) {
         this.item_id = item_id;
     }
 
@@ -125,12 +125,13 @@ public class Invoice {
         this.total = total;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Invoice)) return false;
         Invoice invoice = (Invoice) o;
-        return getInvoice_id() == invoice.getInvoice_id() && getQuantity() == invoice.getQuantity() && Objects.equals(getName(), invoice.getName()) && Objects.equals(getStreet(), invoice.getStreet()) && Objects.equals(getCity(), invoice.getCity()) && Objects.equals(getState(), invoice.getState()) && Objects.equals(getZipcode(), invoice.getZipcode()) && Objects.equals(getItem_type(), invoice.getItem_type()) && Objects.equals(getItem_id(), invoice.getItem_id()) && Objects.equals(getSubtotal(), invoice.getSubtotal()) && Objects.equals(getTax(), invoice.getTax()) && Objects.equals(getProcessing_fee(), invoice.getProcessing_fee()) && Objects.equals(getTotal(), invoice.getTotal());
+        return getInvoice_id() == invoice.getInvoice_id() && getItem_id() == invoice.getItem_id() && getQuantity() == invoice.getQuantity() && Objects.equals(getName(), invoice.getName()) && Objects.equals(getStreet(), invoice.getStreet()) && Objects.equals(getCity(), invoice.getCity()) && Objects.equals(getState(), invoice.getState()) && Objects.equals(getZipcode(), invoice.getZipcode()) && Objects.equals(getItem_type(), invoice.getItem_type()) && Objects.equals(getSubtotal(), invoice.getSubtotal()) && Objects.equals(getTax(), invoice.getTax()) && Objects.equals(getProcessing_fee(), invoice.getProcessing_fee()) && Objects.equals(getTotal(), invoice.getTotal());
     }
 
     @Override

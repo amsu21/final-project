@@ -8,7 +8,7 @@ public class ProcessingFee {
     private String product_type;
     private BigDecimal fee;
 
-    // GETTTERS AND SETTERS
+    // GETTERS AND SETTERS
 
     public String getProduct_type() {
         return product_type;

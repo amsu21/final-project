@@ -42,24 +42,61 @@ public class InvoiceDaoJdbcTemplateImpl implements IncoiveDao {
         }
     }
 
+    // GET ALL INVOICES
     @Override
     public List<Invoice> getAllInvoices() {
-        return null;
+        return jdbcTemplate.query(SELECT_ALL_INVOICE_SQL, this::mapToRowInvoice);
     }
 
+    // ADD INVOICE
     @Override
     public Invoice addInvoice(Invoice invoice) {
-        return null;
+        jdbcTemplate.update(INSERT_INVOICE_SQL,
+                invoice.getName(),
+                invoice.getStreet(),
+                invoice.getCity(),
+                invoice.getState(),
+                invoice.getZipcode(),
+                invoice.getItem_type(),
+                invoice.getItem_id(),
+                invoice.getUnit_price(),
+                invoice.getQuantity(),
+                invoice.getSubtotal(),
+                invoice.getTax(),
+                invoice.getProcessing_fee(),
+                invoice.getTotal());
+
+        int id = jdbcTemplate.queryForObject("select last_insert_id()", Integer.class);
+
+        invoice.setInvoice_id(id);
+
+        return invoice;
     }
 
+    // UPDATE INVOICE
     @Override
     public void updateInvoice(Invoice invoice) {
-
+        jdbcTemplate.update(UPDATE_GAME_SQL,
+                invoice.getName(),
+                invoice.getStreet(),
+                invoice.getCity(),
+                invoice.getState(),
+                invoice.getZipcode(),
+                invoice.getItem_type(),
+                invoice.getItem_id(),
+                invoice.getUnit_price(),
+                invoice.getQuantity(),
+                invoice.getSubtotal(),
+                invoice.getTax(),
+                invoice.getProcessing_fee(),
+                invoice.getTotal(),
+                invoice.getInvoice_id());
     }
 
+    // DELETE INVOICE
     @Override
     public void deleteInvoice(int id) {
-
+        jdbcTemplate.update(DELETE_INVOICE_SQL, id);
     }
 
 

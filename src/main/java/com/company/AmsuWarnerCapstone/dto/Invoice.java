@@ -13,6 +13,7 @@ public class Invoice {
     private String zipcode;
     private String item_type;
     private int item_id;
+    private BigDecimal unit_price;
     private int quantity;
     private BigDecimal subtotal;
     private BigDecimal tax;
@@ -89,6 +90,14 @@ public class Invoice {
         return quantity;
     }
 
+    public BigDecimal getUnit_price() {
+        return unit_price;
+    }
+
+    public void setUnit_price(BigDecimal unit_price) {
+        this.unit_price = unit_price;
+    }
+
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
@@ -131,11 +140,11 @@ public class Invoice {
         if (this == o) return true;
         if (!(o instanceof Invoice)) return false;
         Invoice invoice = (Invoice) o;
-        return getInvoice_id() == invoice.getInvoice_id() && getItem_id() == invoice.getItem_id() && getQuantity() == invoice.getQuantity() && Objects.equals(getName(), invoice.getName()) && Objects.equals(getStreet(), invoice.getStreet()) && Objects.equals(getCity(), invoice.getCity()) && Objects.equals(getState(), invoice.getState()) && Objects.equals(getZipcode(), invoice.getZipcode()) && Objects.equals(getItem_type(), invoice.getItem_type()) && Objects.equals(getSubtotal(), invoice.getSubtotal()) && Objects.equals(getTax(), invoice.getTax()) && Objects.equals(getProcessing_fee(), invoice.getProcessing_fee()) && Objects.equals(getTotal(), invoice.getTotal());
+        return getInvoice_id() == invoice.getInvoice_id() && getItem_id() == invoice.getItem_id() && getQuantity() == invoice.getQuantity() && Objects.equals(getName(), invoice.getName()) && Objects.equals(getStreet(), invoice.getStreet()) && Objects.equals(getCity(), invoice.getCity()) && Objects.equals(getState(), invoice.getState()) && Objects.equals(getZipcode(), invoice.getZipcode()) && Objects.equals(getItem_type(), invoice.getItem_type()) && Objects.equals(getUnit_price(), invoice.getUnit_price()) && Objects.equals(getSubtotal(), invoice.getSubtotal()) && Objects.equals(getTax(), invoice.getTax()) && Objects.equals(getProcessing_fee(), invoice.getProcessing_fee()) && Objects.equals(getTotal(), invoice.getTotal());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getInvoice_id(), getName(), getStreet(), getCity(), getState(), getZipcode(), getItem_type(), getItem_id(), getQuantity(), getSubtotal(), getTax(), getProcessing_fee(), getTotal());
+        return Objects.hash(getInvoice_id(), getName(), getStreet(), getCity(), getState(), getZipcode(), getItem_type(), getItem_id(), getUnit_price(), getQuantity(), getSubtotal(), getTax(), getProcessing_fee(), getTotal());
     }
 }

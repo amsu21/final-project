@@ -111,11 +111,4 @@ public class GamesDaoJdbcTemplateImpl implements GamesInventoryDao {
         return games;
     }
 
-    // GET BY STUDIO
-    @RequestMapping(value = "/studio", method = RequestMethod.GET)
-    @ResponseStatus(value = HttpStatus.OK)
-    public Games getGames() {
-        return null;
-    }
-
 }

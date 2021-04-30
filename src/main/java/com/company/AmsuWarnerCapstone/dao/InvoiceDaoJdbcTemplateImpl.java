@@ -21,7 +21,7 @@ public class InvoiceDaoJdbcTemplateImpl implements IncoiveDao {
             "Select * From invoice";
     private static final String DELETE_INVOICE_SQL =
             "Delete from invoice where invoice_id = ?";
-    private static final String UPDATE_GAME_SQL =
+    private static final String UPDATE_INVOICE_SQL =
             "Update invoice set name = ?, street = ?, city = ?, state = ?, zipcode = ?, item_type = ?, item_id = ?, unit_price = ?, quantity = ?, subtotal = ?, tax = ?, processing_fee = ?, total = ?, where invoice_id = ?";
 
 
@@ -76,7 +76,7 @@ public class InvoiceDaoJdbcTemplateImpl implements IncoiveDao {
     // UPDATE INVOICE
     @Override
     public void updateInvoice(Invoice invoice) {
-        jdbcTemplate.update(UPDATE_GAME_SQL,
+        jdbcTemplate.update(UPDATE_INVOICE_SQL,
                 invoice.getName(),
                 invoice.getStreet(),
                 invoice.getCity(),

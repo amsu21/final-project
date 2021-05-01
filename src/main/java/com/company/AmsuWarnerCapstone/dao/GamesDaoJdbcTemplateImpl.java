@@ -35,6 +35,8 @@ public class GamesDaoJdbcTemplateImpl implements GamesInventoryDao {
             "Select * From game where studio = ?";
     private static final String SELECT_GAME_BY_ESRB_SQL =
             "Select * From game where esrb_rating = ?";
+    private static final String SELECT_GAME_BY_TITLE_SQL =
+            "Select * From game where title = ?";
 
 
 
@@ -75,6 +77,13 @@ public class GamesDaoJdbcTemplateImpl implements GamesInventoryDao {
     @Override
     public List<Games> getGamesByESRB(String rating) {
         return jdbcTemplate.query(SELECT_GAME_BY_ESRB_SQL, this::mapRowToGame, rating);
+    }
+
+    // GET GAMES BY TITLE
+    @Transactional
+    @Override
+    public List<Games> getGamesByTitle(String title) {
+        return jdbcTemplate.query(SELECT_GAME_BY_TITLE_SQL, this::mapRowToGame, title);
     }
 
 

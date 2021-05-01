@@ -31,6 +31,8 @@ public class GamesDaoJdbcTemplateImpl implements GamesInventoryDao {
             "Delete from game where game_id = ?";
     private static final String UPDATE_GAME_SQL =
             "Update game set title = ?, esrb_rating = ?, description = ?, price = ?, studio = ?, quantity = ? where game_id = ?";
+    private static final String SELECT_GAMES_BY_STUDIO_SQL =
+            "Select * From game where studio = ?";
 
 
 
@@ -57,6 +59,13 @@ public class GamesDaoJdbcTemplateImpl implements GamesInventoryDao {
     @Override
     public List<Games> getAllGames() {
         return jdbcTemplate.query(SELECT_ALL_GAME_SQL, this::mapRowToGame);
+    }
+
+    // GET GAMES BY STUDIO
+    @Transactional
+    @Override
+    public List<Games> getGamesByStudio(String name) {
+        return jdbcTemplate.query(SELECT_GAMES_BY_STUDIO_SQL, this::mapRowToGame, name);
     }
 
     // ADD A GAME

@@ -9,6 +9,8 @@ public interface GamesInventoryDao {
 
     List<Games> getAllGames();
 
+    List<Games> getGamesByStudio(String name);
+
     Games addGames(Games games);
 
     void updateGames(Games games);

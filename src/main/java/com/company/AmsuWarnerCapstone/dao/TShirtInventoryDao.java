@@ -9,7 +9,7 @@ public interface TShirtInventoryDao {
 
     List<TShirt> getAllTShirts();
 
-    List<TShirt> getTShirtsByColor();
+    List<TShirt> getTShirtsByColor(String color);
 
     TShirt addTShirt(TShirt tShirt);
 

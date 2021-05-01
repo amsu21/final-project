@@ -5,6 +5,7 @@ import com.company.AmsuWarnerCapstone.dao.ConsolesInventoryDao;
 import com.company.AmsuWarnerCapstone.dao.GamesInventoryDao;
 import com.company.AmsuWarnerCapstone.dao.TShirtInventoryDao;
 import com.company.AmsuWarnerCapstone.dto.Games;
+import com.company.AmsuWarnerCapstone.dto.TShirt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -37,6 +38,12 @@ public class ServiceLayer {
     // GET GAMES BY TITLE
     public List<Games> getGamesByTitle(String title) {
         return gamesInventoryDao.getGamesByTitle(title);
+    }
+
+
+    // *TSHIRTS SECTION*
+    public List<TShirt> getTShirtsByColor(String color) {
+        return tShirtInventoryDao.getTShirtsByColor(color);
     }
 
 }

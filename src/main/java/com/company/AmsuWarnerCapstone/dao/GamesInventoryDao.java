@@ -11,6 +11,10 @@ public interface GamesInventoryDao {
 
     List<Games> getGamesByStudio(String name);
 
+    List<Games> getGamesByESRB(String rating);
+
+    List<Games> getGamesByTitle(String title);
+
     Games addGames(Games games);
 
     void updateGames(Games games);

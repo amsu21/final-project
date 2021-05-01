@@ -30,4 +30,20 @@ public class GamesController {
     public List<Games> getGamesByStudio(@PathVariable String studio) {
         return serviceLayer.getGamesByStudio(studio);
     }
+
+    // GET GAMES BY ESRB
+    // METHOD ANNOTATION
+    @RequestMapping(value = "/game/esrb/{rating}", method = RequestMethod.GET)
+    @ResponseStatus(value = HttpStatus.OK)
+    public List<Games> getGamesByESRB(@PathVariable String rating) {
+        return serviceLayer.getGamesByESRB(rating);
+    }
+
+    // GAMES BY TITLE
+    // METHOD ANNOTATION
+    @RequestMapping(value = "/game/title/{title}", method = RequestMethod.GET)
+    @ResponseStatus(value = HttpStatus.OK)
+    public List<Games> getGamesByTitle(@PathVariable String title) {
+        return serviceLayer.getGamesByTitle(title);
+    }
 }

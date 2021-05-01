@@ -4,9 +4,12 @@ package com.company.AmsuWarnerCapstone.service;
 import com.company.AmsuWarnerCapstone.dao.ConsolesInventoryDao;
 import com.company.AmsuWarnerCapstone.dao.GamesInventoryDao;
 import com.company.AmsuWarnerCapstone.dao.TShirtInventoryDao;
+import com.company.AmsuWarnerCapstone.dto.Games;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 public class ServiceLayer {
@@ -20,4 +23,10 @@ public class ServiceLayer {
         this.gamesInventoryDao = gamesInventoryDao;
         this.tShirtInventoryDao = tShirtInventoryDao;
     }
+
+    // GET GAMES BY STUDIO
+    public List<Games> getGamesByStudio(String studio) {
+       return gamesInventoryDao.getGamesByStudio(studio);
+    }
+
 }

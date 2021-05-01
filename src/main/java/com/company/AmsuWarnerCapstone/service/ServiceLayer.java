@@ -29,4 +29,14 @@ public class ServiceLayer {
        return gamesInventoryDao.getGamesByStudio(studio);
     }
 
+    // GET GAMES BY ESRB RATING
+    public List<Games> getGamesByESRB(String rating) {
+        return gamesInventoryDao.getGamesByESRB(rating);
+    }
+
+    // GET GAMES BY TITLE
+    public List<Games> getGamesByTitle(String title) {
+        return gamesInventoryDao.getGamesByTitle(title);
+    }
+
 }

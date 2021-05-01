@@ -9,6 +9,8 @@ public interface TShirtInventoryDao {
 
     List<TShirt> getAllTShirts();
 
+    List<TShirt> getTShirtsByManufacturer();
+
     TShirt addTShirt(TShirt tShirt);
 
     void updateTShirt(TShirt tShirt);

@@ -26,7 +26,7 @@ public class TShirtDaoJdbcTemplateImpl implements TShirtInventoryDao {
             "Delete from t_shirt where t_shirt_id = ?";
     private static final String UPDATE_TSHIRT_SQL =
             "Update t_shirt set size = ?, color = ?, description = ?, price = ?, quantity = ? where t_shirt_id = ?";
-    private static final String SELECT_TSHIRT_BY_COLOR_ =
+    private static final String SELECT_TSHIRT_BY_COLOR_SQL =
             "Select * From t_shirt where color = ?";
 
     private JdbcTemplate jdbcTemplate;
@@ -55,9 +55,10 @@ public class TShirtDaoJdbcTemplateImpl implements TShirtInventoryDao {
     }
 
     // GET TSHIRTS BY COLOR
+    @Transactional
     @Override
     public List<TShirt> getTShirtsByColor(String color) {
-        return jdbcTemplate.query(SELECT_TSHIRT_BY_COLOR_, this::mapRowToTShirt);
+        return jdbcTemplate.query(SELECT_TSHIRT_BY_COLOR_SQL, this::mapRowToTShirt, color);
     }
 
     // ADD A TSHIRT
@@ -99,8 +100,8 @@ public class TShirtDaoJdbcTemplateImpl implements TShirtInventoryDao {
     private TShirt mapRowToTShirt(ResultSet rs, int rowNumber) throws SQLException {
         TShirt tShirt = new TShirt();
         tShirt.setT_shirt_id(rs.getInt("t_shirt_id"));
-        tShirt.setSize(rs.getNString("size"));
-        tShirt.setColor(rs.getNString("color"));
+        tShirt.setSize(rs.getString("size"));
+        tShirt.setColor(rs.getString("color"));
         tShirt.setDescription(rs.getString("description"));
         tShirt.setPrice(rs.getBigDecimal("price"));
         tShirt.setQuantity(rs.getInt("quantity"));

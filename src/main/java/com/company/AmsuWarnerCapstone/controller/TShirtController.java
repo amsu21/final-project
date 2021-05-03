@@ -24,7 +24,7 @@ public class TShirtController {
 
     // GET ALL TSHIRTS BY COLOR
     // METHOD NOTATION
-    @RequestMapping(value = "/tshirt/color{color}", method = RequestMethod.GET)
+    @RequestMapping(value = "/tshirt/color/{color}", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public List<TShirt> getTShirtsByColor(@PathVariable String color) {
         return serviceLayer.getTShirtsByColor(color);

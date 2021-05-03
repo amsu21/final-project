@@ -19,8 +19,7 @@ public class GamesController {
     @RequestMapping(value = "/game", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public List<Games> getGames() {
-        // return serviceLayer.getAllGames();
-        return null;
+        return serviceLayer.getAllGames();
     }
 
     // GET GAMES BY STUDIO

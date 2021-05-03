@@ -25,6 +25,11 @@ public class ServiceLayer {
         this.tShirtInventoryDao = tShirtInventoryDao;
     }
 
+    // GET GAMES
+    public List<Games> getAllGames() {
+        return gamesInventoryDao.getAllGames();
+    }
+
     // GET GAMES BY STUDIO
     public List<Games> getGamesByStudio(String studio) {
        return gamesInventoryDao.getGamesByStudio(studio);
@@ -42,6 +47,13 @@ public class ServiceLayer {
 
 
     // *TSHIRTS SECTION*
+
+    // GET TSHIRTS
+    public List<TShirt> getAllTShirts() {
+        return tShirtInventoryDao.getAllTShirts();
+    }
+
+
     public List<TShirt> getTShirtsByColor(String color) {
         return tShirtInventoryDao.getTShirtsByColor(color);
     }

@@ -53,9 +53,14 @@ public class ServiceLayer {
         return tShirtInventoryDao.getAllTShirts();
     }
 
-
+    // GET TSHIRTS BY COLOR
     public List<TShirt> getTShirtsByColor(String color) {
         return tShirtInventoryDao.getTShirtsByColor(color);
+    }
+
+    // GET TSHIRTS BY SIZE
+    public List<TShirt> getTShirtsBySize(String size) {
+        return tShirtInventoryDao.getTShirtsBySize(size);
     }
 
 }

@@ -28,6 +28,8 @@ public class TShirtDaoJdbcTemplateImpl implements TShirtInventoryDao {
             "Update t_shirt set size = ?, color = ?, description = ?, price = ?, quantity = ? where t_shirt_id = ?";
     private static final String SELECT_TSHIRT_BY_COLOR_SQL =
             "Select * From t_shirt where color = ?";
+    private static final String SELECT_TSHIRT_BY_SIZE_SQL =
+            "Select * From t_shirt where size = ?";
 
     private JdbcTemplate jdbcTemplate;
 
@@ -59,6 +61,12 @@ public class TShirtDaoJdbcTemplateImpl implements TShirtInventoryDao {
     @Override
     public List<TShirt> getTShirtsByColor(String color) {
         return jdbcTemplate.query(SELECT_TSHIRT_BY_COLOR_SQL, this::mapRowToTShirt, color);
+    }
+
+    // GET TSHIRTS BY SIZE
+    @Override
+    public List<TShirt> getTShirtsBySize(String size) {
+        return jdbcTemplate.query(SELECT_TSHIRT_BY_SIZE_SQL, this::mapRowToTShirt, size);
     }
 
     // ADD A TSHIRT

@@ -29,4 +29,12 @@ public class TShirtController {
     public List<TShirt> getTShirtsByColor(@PathVariable String color) {
         return serviceLayer.getTShirtsByColor(color);
     }
+
+    // GET ALL TSHIRTS BY SIZE
+    // METHOD ANNOTATION
+    @RequestMapping(value = "/tshirt/size/{size}", method = RequestMethod.GET)
+    @ResponseStatus(value = HttpStatus.OK)
+    public List<TShirt> getTShirtsBySize(@PathVariable String size) {
+        return serviceLayer.getTShirtsBySize(size);
+    }
 }

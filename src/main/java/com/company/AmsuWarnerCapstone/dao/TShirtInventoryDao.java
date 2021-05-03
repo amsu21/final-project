@@ -11,6 +11,8 @@ public interface TShirtInventoryDao {
 
     List<TShirt> getTShirtsByColor(String color);
 
+    List<TShirt> getTShirtsBySize(String size);
+
     TShirt addTShirt(TShirt tShirt);
 
     void updateTShirt(TShirt tShirt);

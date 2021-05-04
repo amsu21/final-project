@@ -7,6 +7,7 @@ import com.company.AmsuWarnerCapstone.dao.IncoiveDao;
 import com.company.AmsuWarnerCapstone.dao.TShirtInventoryDao;
 import com.company.AmsuWarnerCapstone.dto.Consoles;
 import com.company.AmsuWarnerCapstone.dto.Games;
+import com.company.AmsuWarnerCapstone.dto.Invoice;
 import com.company.AmsuWarnerCapstone.dto.TShirt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -83,5 +84,10 @@ public class ServiceLayer {
 
 
     // * INVOICE SECTION*
+
+    // GET INVOICE
+    public List<Invoice> getAllInvoices() {
+        return incoiveDao.getAllInvoices();
+    }
 
 }

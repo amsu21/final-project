@@ -26,9 +26,8 @@ public class ConsolesDaoJdbcTemplateImpl implements ConsolesInventoryDao {
             "Delete from console where console_id = ?";
     private static final String UPDATE_CONSOLE_SQL =
             "Update console set model = ?, manufacturer = ?, memory_amount = ?, processor = ?, price = ?, quantity = ? where console_id = ?";
-
-
-
+    private static final String SELECT_CONSOLE_BY_MANU_SQL =
+            "Select * From game where manufacturer = ?";
 
 
     private JdbcTemplate jdbcTemplate;
@@ -50,9 +49,17 @@ public class ConsolesDaoJdbcTemplateImpl implements ConsolesInventoryDao {
     }
 
     // GET ALL CONSOLES
+    @Transactional
     @Override
     public List<Consoles> getAllConsoles() {
         return jdbcTemplate.query(SELECT_ALL_CONSOLE_SQL, this::mapRowToConsole);
+    }
+
+    // GET CONSOLES BY MANUFACTURER
+    @Transactional
+    @Override
+    public List<Consoles> getConsolesByManufacturer(String brand) {
+        return jdbcTemplate.query(SELECT_CONSOLE_BY_MANU_SQL, this::mapRowToConsole, brand);
     }
 
     // ADD A CONSOLE

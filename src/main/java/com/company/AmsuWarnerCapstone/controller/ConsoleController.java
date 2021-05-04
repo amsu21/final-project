@@ -1,26 +1,31 @@
 package com.company.AmsuWarnerCapstone.controller;
 
 import com.company.AmsuWarnerCapstone.dto.Consoles;
-import com.company.AmsuWarnerCapstone.dto.Games;
+import com.company.AmsuWarnerCapstone.service.ServiceLayer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 public class ConsoleController {
-    // private final List<Consoles> consolesList;
-    private static int idCounter = 1;
+    @Autowired
+    ServiceLayer serviceLayer;
 
     // GET ALL CONSOLES
     // METHOD NOTATIONS
     @RequestMapping(value = "/console", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
-    public Consoles getConsole() {
-        // return Consoles;
-        return null;
+    public List<Consoles> getConsole() {
+        return serviceLayer.getAllConsoles();
+    }
+
+    // GET CONSOLES BY MANUFACTURER
+    // METHOD NOTATIONS
+    @RequestMapping(value = "/console/manufact/{brand}", method = RequestMethod.GET)
+    @ResponseStatus(value = HttpStatus.OK)
+    public List<Consoles> getAllConsolesByManufacturer(@PathVariable String brand) {
+        return serviceLayer.getAllConsolesByManufacturer(brand);
     }
 }

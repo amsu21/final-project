@@ -1,10 +1,7 @@
 package com.company.AmsuWarnerCapstone.service;
 
 
-import com.company.AmsuWarnerCapstone.dao.ConsolesInventoryDao;
-import com.company.AmsuWarnerCapstone.dao.GamesInventoryDao;
-import com.company.AmsuWarnerCapstone.dao.IncoiveDao;
-import com.company.AmsuWarnerCapstone.dao.TShirtInventoryDao;
+import com.company.AmsuWarnerCapstone.dao.*;
 import com.company.AmsuWarnerCapstone.dto.Consoles;
 import com.company.AmsuWarnerCapstone.dto.Games;
 import com.company.AmsuWarnerCapstone.dto.Invoice;
@@ -22,13 +19,15 @@ public class ServiceLayer {
     private TShirtInventoryDao tShirtInventoryDao;
 
     private IncoiveDao incoiveDao;
+    private ProcessingFeeDao processingFeeDao;
 
     @Autowired
-    public ServiceLayer(ConsolesInventoryDao consolesInventoryDao, GamesInventoryDao gamesInventoryDao, TShirtInventoryDao tShirtInventoryDao, IncoiveDao incoiveDao) {
+    public ServiceLayer(ConsolesInventoryDao consolesInventoryDao, GamesInventoryDao gamesInventoryDao, TShirtInventoryDao tShirtInventoryDao, IncoiveDao incoiveDao, ProcessingFeeDao processingFeeDao) {
         this.consolesInventoryDao = consolesInventoryDao;
         this.gamesInventoryDao = gamesInventoryDao;
         this.tShirtInventoryDao = tShirtInventoryDao;
         this.incoiveDao = incoiveDao;
+        this.processingFeeDao = processingFeeDao;
     }
 
     // GET GAMES
@@ -89,5 +88,11 @@ public class ServiceLayer {
     public List<Invoice> getAllInvoices() {
         return incoiveDao.getAllInvoices();
     }
+
+
+    //* FEE SECTION*
+
+    // GET PROCESSINGFEE
+    public List<ProcessingFee> getAllFees() {return ProcessingFeeDao.getAllProcessingFees}
 
 }

@@ -2,10 +2,7 @@ package com.company.AmsuWarnerCapstone.service;
 
 
 import com.company.AmsuWarnerCapstone.dao.*;
-import com.company.AmsuWarnerCapstone.dto.Consoles;
-import com.company.AmsuWarnerCapstone.dto.Games;
-import com.company.AmsuWarnerCapstone.dto.Invoice;
-import com.company.AmsuWarnerCapstone.dto.TShirt;
+import com.company.AmsuWarnerCapstone.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -93,6 +90,7 @@ public class ServiceLayer {
     //* FEE SECTION*
 
     // GET PROCESSINGFEE
-    public List<ProcessingFee> getAllFees() {return ProcessingFeeDao.getAllProcessingFees}
-
+    public List<ProcessingFee> getAllFees() {
+        return processingFeeDao.getAllProcessingFees();
+    }
 }

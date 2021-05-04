@@ -4,6 +4,7 @@ package com.company.AmsuWarnerCapstone.service;
 import com.company.AmsuWarnerCapstone.dao.ConsolesInventoryDao;
 import com.company.AmsuWarnerCapstone.dao.GamesInventoryDao;
 import com.company.AmsuWarnerCapstone.dao.TShirtInventoryDao;
+import com.company.AmsuWarnerCapstone.dto.Consoles;
 import com.company.AmsuWarnerCapstone.dto.Games;
 import com.company.AmsuWarnerCapstone.dto.TShirt;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,6 +62,19 @@ public class ServiceLayer {
     // GET TSHIRTS BY SIZE
     public List<TShirt> getTShirtsBySize(String size) {
         return tShirtInventoryDao.getTShirtsBySize(size);
+    }
+
+
+    // *CONSOLES SECTION*
+
+    // GET ALL CONSOLES
+    public List<Consoles> getAllConsoles() {
+        return consolesInventoryDao.getAllConsoles();
+    }
+
+    // GET CONSOLES BY MANUFACTURER
+    public List<Consoles> getAllConsolesByManufacturer(String brand) {
+        return consolesInventoryDao.getConsolesByManufacturer(brand);
     }
 
 }

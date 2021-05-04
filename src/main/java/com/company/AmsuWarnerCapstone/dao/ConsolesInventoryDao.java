@@ -9,6 +9,8 @@ public interface ConsolesInventoryDao {
 
     List<Consoles> getAllConsoles();
 
+    List<Consoles> getConsolesByManufacturer(String brand);
+
     Consoles addConsoles(Consoles consoles);
 
     void updateConsoles(Consoles consoles);

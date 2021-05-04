@@ -3,6 +3,7 @@ package com.company.AmsuWarnerCapstone.service;
 
 import com.company.AmsuWarnerCapstone.dao.ConsolesInventoryDao;
 import com.company.AmsuWarnerCapstone.dao.GamesInventoryDao;
+import com.company.AmsuWarnerCapstone.dao.IncoiveDao;
 import com.company.AmsuWarnerCapstone.dao.TShirtInventoryDao;
 import com.company.AmsuWarnerCapstone.dto.Consoles;
 import com.company.AmsuWarnerCapstone.dto.Games;
@@ -19,11 +20,14 @@ public class ServiceLayer {
     private GamesInventoryDao gamesInventoryDao;
     private TShirtInventoryDao tShirtInventoryDao;
 
+    private IncoiveDao incoiveDao;
+
     @Autowired
-    public ServiceLayer(ConsolesInventoryDao consolesInventoryDao, GamesInventoryDao gamesInventoryDao, TShirtInventoryDao tShirtInventoryDao) {
+    public ServiceLayer(ConsolesInventoryDao consolesInventoryDao, GamesInventoryDao gamesInventoryDao, TShirtInventoryDao tShirtInventoryDao, IncoiveDao incoiveDao) {
         this.consolesInventoryDao = consolesInventoryDao;
         this.gamesInventoryDao = gamesInventoryDao;
         this.tShirtInventoryDao = tShirtInventoryDao;
+        this.incoiveDao = incoiveDao;
     }
 
     // GET GAMES
@@ -76,5 +80,8 @@ public class ServiceLayer {
     public List<Consoles> getAllConsolesByManufacturer(String brand) {
         return consolesInventoryDao.getConsolesByManufacturer(brand);
     }
+
+
+    // * INVOICE SECTION*
 
 }

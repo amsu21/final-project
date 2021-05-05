@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -17,14 +18,16 @@ public class ServiceLayer {
 
     private IncoiveDao incoiveDao;
     private ProcessingFeeDao processingFeeDao;
+    private TaxDao taxDao;
 
     @Autowired
-    public ServiceLayer(ConsolesInventoryDao consolesInventoryDao, GamesInventoryDao gamesInventoryDao, TShirtInventoryDao tShirtInventoryDao, IncoiveDao incoiveDao, ProcessingFeeDao processingFeeDao) {
+    public ServiceLayer(ConsolesInventoryDao consolesInventoryDao, GamesInventoryDao gamesInventoryDao, TShirtInventoryDao tShirtInventoryDao, IncoiveDao incoiveDao, ProcessingFeeDao processingFeeDao, TaxDao taxDao) {
         this.consolesInventoryDao = consolesInventoryDao;
         this.gamesInventoryDao = gamesInventoryDao;
         this.tShirtInventoryDao = tShirtInventoryDao;
         this.incoiveDao = incoiveDao;
         this.processingFeeDao = processingFeeDao;
+        this.taxDao = taxDao;
     }
 
     // GET GAMES
@@ -89,8 +92,14 @@ public class ServiceLayer {
 
     //* FEE SECTION*
 
-    // GET PROCESSINGFEE
-    public List<ProcessingFee> getAllFees() {
-        return processingFeeDao.getAllProcessingFees();
+    // GET PROCESSING FEE
+    public BigDecimal getProcessingFee(String productType) {
+        return processingFeeDao.getFeeNum(productType);
+    }
+
+
+    // *TAX SECTION*
+    public BigDecimal getTax(String state) {
+        return taxDao.getRate(state);
     }
 }

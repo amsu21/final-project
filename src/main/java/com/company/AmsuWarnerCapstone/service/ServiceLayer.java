@@ -89,6 +89,19 @@ public class ServiceLayer {
         return incoiveDao.getAllInvoices();
     }
 
+    // LOGIC
+    public Invoice createInvoice(Invoice invoice) {
+        invoice.setTax(this.getTax(invoice.getState()));
+        if (invoice.getItem_type().equals("Consoles")) {
+          Consoles consolesType = consolesInventoryDao.getConsoles(invoice.getItem_id());
+          invoice.setUnit_price(consolesType.getPrice());
+        }
+        invoice.setSubtotal();
+        invoice.setProcessing_fee(this.getProcessingFee(invoice.getItem_type()));
+        invoice.setTotal();
+        invoice.setInvoice_id();
+    }
+
 
     //* FEE SECTION*
 

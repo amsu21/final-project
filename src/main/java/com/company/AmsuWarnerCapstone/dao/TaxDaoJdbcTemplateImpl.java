@@ -2,26 +2,21 @@ package com.company.AmsuWarnerCapstone.dao;
 
 
 import com.company.AmsuWarnerCapstone.dto.Tax;
+import com.fasterxml.jackson.databind.introspect.TypeResolutionContext;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @Repository
 public class TaxDaoJdbcTemplateImpl implements TaxDao {
     // PREPARED STATEMENTS
-    private static final String INSERT_TAX_SQL =
-            "Insert into sales_tax_rate (state, rate) values (?, ?)";
     private static final String SELECT_TAX_SQL =
             "Select * From sales_tax_rate";
-    private static final String SELECT_ALL_TAX_SQL =
-            "Select * From sales_tax_rate";
-    private static final String DELETE_TAX_SQL =
-            "Delete from sales_tax_rate";
-    private static final String UPDATE_TAX_SQL =
-            "Update sales_tax_rate set state = ?, rate = ?";
 
     private JdbcTemplate jdbcTemplate;
 
@@ -32,7 +27,18 @@ public class TaxDaoJdbcTemplateImpl implements TaxDao {
 
     @Override
     public Tax getTax(String state) {
-        return null;
+        try {
+            return jdbcTemplate.queryForObject(SELECT_TAX_SQL, this::mapToRowTax, state);
+        }
+        catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+
+    @Override
+    public BigDecimal getRate(String state) {
+        Tax tax = this.getTax(state);
+        return tax.getRate();
     }
 
     // ROW MAPPER
